@@ -1,6 +1,6 @@
 {
 	"family": "sep-20tdf",
-	"taskRoleArn": "arn:aws:iam::695747170963:role/ecsTaskExecutionRole",
+	"taskRoleArn": "arn:aws:iam::721506279836:role/ecsTaskExecutionRole",
 	"containerDefinitions": [{
 		"name": "apache-container",
 		"image": "695747170963.dkr.ecr.us-east-2.amazonaws.com/sep-20ecr:GIT_COMMIT",
