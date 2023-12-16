@@ -3,7 +3,7 @@ name: Master Deployment
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -23,8 +23,8 @@ jobs:
       - name: Determine branch name
         id: set-branch-name
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
-            echo "BRANCH_NAME=master" >> $GITHUB_ENV
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "BRANCH_NAME=main" >> $GITHUB_ENV
             else
             echo "Branch not permitted"
             exit 1
@@ -33,7 +33,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} .
-          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 695747170963.dkr.ecr.us-east-2.amazonaws.com/sep-20ecr:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 721506279836.dkr.ecr.us-east-2.amazonaws.com/ecs-16repo:${{ env.BRANCH_NAME }}-${{ github.run_number }}
     
 
       - name: Login to Amazon ECR
@@ -42,7 +42,7 @@ jobs:
 
       - name: Push Docker image to Amazon ECR
         run: |
-          docker push 695747170963.dkr.ecr.us-east-2.amazonaws.com/sep-20ecr:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker push 721506279836.dkr.ecr.us-east-2.amazonaws.com/ecs-16repo:${{ env.BRANCH_NAME }}-${{ github.run_number }}
       - name: Deploy to ECS
         run: |
              
@@ -79,7 +79,7 @@ jobs:
               }
 
 
-             if [ "${{ github.ref }}" == "refs/heads/master" ]; then
+             if [ "${{ github.ref }}" == "refs/heads/main" ]; then
              SERVICE_NAME="sep-20svc"
              IMAGE_VERSION="${{ env.BRANCH_NAME }}-${{ github.run_number }}"
              TASK_FAMILY="sep-20tdf"
