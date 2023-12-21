@@ -3,7 +3,7 @@
 	"taskRoleArn": "arn:aws:iam::721506279836:role/ecsTaskExecutionRole",
 	"containerDefinitions": [{
 		"name": "apache-container",
-		"image": "695747170963.dkr.ecr.us-east-2.amazonaws.com/sep-20ecr:GIT_COMMIT",
+		"image": "721506279836.dkr.ecr.us-east-2.amazonaws.com/2112-dec:GIT_COMMIT",
 		"cpu": 400,
 		"memory": 300,
 		"memoryReservation": 200,
