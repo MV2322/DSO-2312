@@ -1,9 +1,9 @@
 {
-	"family": "sep-20tdf",
+	"family": "dec-21tdf",
 	"taskRoleArn": "arn:aws:iam::721506279836:role/ecsTaskExecutionRole",
 	"containerDefinitions": [{
 		"name": "apache-container",
-		"image": "721506279836.dkr.ecr.us-east-2.amazonaws.com/2112-dec:GIT_COMMIT",
+		"image": "721506279836.dkr.ecr.us-east-2.amazonaws.com/demo1222:GIT_COMMIT",
 		"cpu": 400,
 		"memory": 300,
 		"memoryReservation": 200,
