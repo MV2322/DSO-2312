@@ -89,5 +89,5 @@ jobs:
              RUNNING_COUNT=1
              startECSDeploy
              else
-                  echo "Skipping deployment"
+                  echo "kipping deployment"
              fi
