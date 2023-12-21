@@ -33,7 +33,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} .
-          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 721506279836.dkr.ecr.us-east-2.amazonaws.com/2112-dec:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 721506279836.dkr.ecr.us-east-2.amazonaws.com/demo1222:${{ env.BRANCH_NAME }}-${{ github.run_number }}
     
 
       - name: Login to Amazon ECR
@@ -42,7 +42,7 @@ jobs:
 
       - name: Push Docker image to Amazon ECR
         run: |
-          docker push 721506279836.dkr.ecr.us-east-2.amazonaws.com/2112-dec:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker push 721506279836.dkr.ecr.us-east-2.amazonaws.com/demo1222:${{ env.BRANCH_NAME }}-${{ github.run_number }}
       - name: Deploy to ECS
         run: |
              
@@ -82,7 +82,7 @@ jobs:
              if [ "${{ github.ref }}" == "refs/heads/main" ]; then
              SERVICE_NAME="dec-21svcsvc"
              IMAGE_VERSION="${{ env.BRANCH_NAME }}-${{ github.run_number }}"
-             TASK_FAMILY="sep-20tdf"
+             TASK_FAMILY="dec-21tdf"
              CLUSTER="malar-cluster"
              TASK_ROLE="ecsTaskExecutionRole"
              JSON_FILE=".github/workflows/task-definition"
